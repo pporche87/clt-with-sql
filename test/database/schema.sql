@@ -1,0 +1,10 @@
+DROP DATABASE IF EXISTS clt_test;
+CREATE DATABASE clt_test;
+
+\c clt_test
+
+DROP TABLE IF EXISTS todos;
+CREATE TABLE tasks (
+	id SERIAL PRIMARY KEY,
+	task VARCHAR(140) NOT NULL
+);

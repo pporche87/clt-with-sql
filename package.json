@@ -1,0 +1,29 @@
+{
+  "name": "clt-with-sql",
+  "version": "1.0.0",
+  "description": "Command Line Todo List with Postgresql",
+  "main": "task.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+		"createdb": "psql < ./database/schema.sql",
+		"createdbt": "psql < ./test/database/schema.sql"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pporche87/clt-with-sql.git"
+  },
+  "author": "Patrick Porche <pporche87@gmail.com> (http://pporche87.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pporche87/clt-with-sql/issues"
+  },
+  "homepage": "https://github.com/pporche87/clt-with-sql#readme",
+  "devDependencies": {
+    "eslint": "^4.2.0",
+    "eslint-plugin-react": "^7.1.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "pg-promise": "^6.3.5"
+  }
+}
