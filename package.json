@@ -4,9 +4,9 @@
   "description": "Command Line Todo List with Postgresql",
   "main": "task.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-		"createdb": "psql < ./database/schema.sql",
-		"createdbt": "psql < ./test/database/schema.sql"
+    "test": "mocha ./test/test.js",
+    "createdb": "psql < ./database/schema.sql",
+    "createdbt": "psql < ./test/database/schema.sql"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,10 @@
   },
   "homepage": "https://github.com/pporche87/clt-with-sql#readme",
   "devDependencies": {
+    "chai": "^4.1.0",
     "eslint": "^4.2.0",
-    "eslint-plugin-react": "^7.1.0"
+    "eslint-plugin-react": "^7.1.0",
+    "mocha": "^3.4.2"
   },
   "dependencies": {
     "bluebird": "^3.5.0",
