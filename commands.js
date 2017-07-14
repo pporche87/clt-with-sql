@@ -1,5 +1,20 @@
-const list = () => {
+const printer = require('./printer')
+const {
+	listQuery,
+	addQuery,
+	deleteQuery,
+	updateQuery
+} = require('./database/queries')
 
+const list = () => {
+	listQuery()
+		.then(() => {
+			process.exit(0)
+		})
+		.catch((err) => {
+			console.log(err.message)
+			process.exit(1)
+		})
 }
 
 const add = () => {
@@ -15,7 +30,9 @@ const update = () => {
 }
 
 const notFound = (command) => {
-	return `Sorry: command \`${command}\` not recognized :(\nAccepted commands are\nlist\nadd\nupdate\ndelete`
+	const errorMessage = `Sorry: command \`${command}\` not recognized :(\nAccepted commands are\nlist\nadd\nupdate\ndelete`
+	printer.print(errorMessage)
+	return errorMessage
 }
 
 module.exports = {

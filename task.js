@@ -5,6 +5,11 @@ const {
 	update,
 	notFound
 } = require('./commands')
+const {
+	listQuery
+} = require('./database/queries')
+
+
 
 const runTodoList = () => {
 	const command = process.argv[2]
