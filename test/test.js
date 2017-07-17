@@ -25,11 +25,11 @@ beforeEach(() => {
 	printer.print(testTodos.length + ' tasks.')
 })
 
-describe.only('listQuery', () => {
+describe.only('listQuery', (done) => {
 	it('should return a list of tasks from a todo list', (done) => {
 		listQuery()
 			.then(data => {
-				console.log(data);
+				console.log(data)
 				expect(data).to.eql('')
 			})
 		done()
