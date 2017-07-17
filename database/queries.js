@@ -18,22 +18,29 @@ const listQuery = () => {
 			})
 			printer.print('')
 			printer.print(data.length + ' tasks.')
+			printer.print('')
 		})
 }
 
-// add
-const addQuery = () => {
-
+const addQuery = (task) => {
+	return db.one('INSERT INTO tasks (task) VALUES ($1) RETURNING *', [task])
+		.then((data) => {
+			printer.print('Created task ' + data.id + '.')
+		})
 }
 
-// delete
-const deleteQuery = () => {
-
+const deleteQuery = (task) => {
+	return db.one('DELETE FROM tasks WHERE id=$1 RETURNING *', [task])
+		.then((data) => {
+			printer.print(`Completed the task '${data.task}'`)
+		})
 }
 
-// update
-const updateQuery = () => {
-
+const updateQuery = (task, updateTask) => {
+	return db.one('UPDATE tasks SET task=$2 WHERE task=$1 RETURNING *', [task, updateTask])
+		.then((data) => {
+			printer.print(`Updated the task '${data.task}'`)
+		})
 }
 
 module.exports = {

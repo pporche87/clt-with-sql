@@ -17,16 +17,37 @@ const list = () => {
 		})
 }
 
-const add = () => {
-
+const add = (task) => {
+	addQuery(task)
+		.then(() => {
+			process.exit(0)
+		})
+		.catch((err) => {
+			console.log(err.message)
+			process.exit(1)
+		})
 }
 
-const del = () => {
-
+const del = (task) => {
+	deleteQuery(task)
+		.then(() => {
+			process.exit(0)
+		})
+		.catch((err) => {
+			console.log(err.message)
+			process.exit(1)
+		})
 }
 
-const update = () => {
-
+const update = (task, updateTask) => {
+	updateQuery(task, updateTask)
+		.then(() => {
+			process.exit(0)
+		})
+		.catch((err) => {
+			console.log(err.message)
+			process.exit(1)
+		})
 }
 
 const notFound = (command) => {
